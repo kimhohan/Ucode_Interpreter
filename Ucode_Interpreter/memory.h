@@ -1,24 +1,29 @@
-﻿#pragma once
+#pragma once
 #include <vector>
 #include <iostream>
 using namespace std;
 
-class Memory{
-protected:
-	int *memory;
-	vector<int> startBlock;
+
+class CMemory
+{
 public:
-	Memory();
-	~Memory();
+	int *memory;
+	vector<int> block;
 
-	void makeMemory(int size);
+public:
+	CMemory();
+	~CMemory();
 
-	void store(int block, int offset, int value);	//(b,n)�� value
-	void store(int index, int value);	//�� �ּҿ� value
-	int load(int block, int offset);	//(b,n) value load
-	int load(int index);	//�� �ּ� value load
-	int loadAddr(int block, int offset);	//(b,n)�� ���ּ� load
+	void SetMemory(int size);
 
-	void addBlock(int count);
-	int GetBlockIndex(int block);
+	void StoreMemory(int block, int offset, int value);
+	void StoreMemory(int index, int value);
+
+	int LoadMemory(int block, int offset);
+	int LoadMemory(int index);
+	int LoadAddress(int block, int offset);
+
+	void InsertBlock(int m_block);
+	int GetBlockIndex(int m_block);
 };
+

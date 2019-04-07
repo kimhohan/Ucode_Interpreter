@@ -1,52 +1,43 @@
 #include "stdafx.h"
-#include "stack.h"
-#include <cstdlib>
+#include "Stack.h"
+#include "ChildView.h"
 
-Stack::Stack()
+CStack::CStack()
 {
 	top = -1;
 }
 
-Stack::~Stack()
-{
 
+CStack::~CStack()
+{
 }
 
-void Stack::push(int value)
+int CStack::Pop() // 스택의 꼭대기값 반환
 {
-	if (full())
-		exit(0);
-	stack[++top] = value;
-}
-
-int Stack::pop()
-{
-	if (empty())
-		exit(0);
 	return stack[top--];
 }
 
-int Stack::getTop()
+void CStack::Push(int value) // 스택의 꼭대기에 값 추가
 {
-	return top;
+	stack[++top] = value;
 }
 
-void Stack::setTop(int sp)
-{
-	top = sp;
-}
-
-bool Stack::full()
-{
-	return top == STACK_SIZE - 1;
-}
-
-bool Stack::empty()
+bool CStack::EmptyStack() // 스택이 비었을 경우
 {
 	return top == -1;
 }
 
-int Stack::getValue(int sp)
+int CStack::GetValue(int sp) // 스택 포인터 위치에 값 반환
 {
 	return stack[sp];
+}
+
+int CStack::GetTop() // 스택의 꼭대기 위치 반환
+{
+	return top;
+}
+
+void CStack::SetTop(int sp) // 스택 꼭대기 위치 변경
+{
+	top = sp;
 }

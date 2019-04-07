@@ -1,22 +1,21 @@
-﻿
 #pragma once
 
-#define STACK_SIZE 1000
-
-class Stack{
-protected:
-	int stack[STACK_SIZE];
+#define STACKSIZE 1000
+class CStack
+{
+public:
+	int stack[STACKSIZE];
 	int top;
 
 public:
-	Stack();
-	~Stack();
+	CStack();
+	~CStack();
 
-	int getValue(int sp);
-	void push(int value);
-	int pop();
-	int getTop();	//���� top�� ��������
-	void setTop(int sp);	//top = sp
-	bool full();
-	bool empty();
+	int GetValue(int sp);
+	void Push(int value);
+	int Pop();
+	int GetTop();
+	void SetTop(int sp);
+	bool EmptyStack();
 };
+
